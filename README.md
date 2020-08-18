@@ -1,7 +1,5 @@
 # Dynamic Selenium Web Scraper from Json input
 
-### Please note that this is still a work in progress
-
 ## Table of contents
 * [Desctription](#description)
 * [Features](#features)
@@ -14,14 +12,15 @@ This dynamic scraper uses python and selenium to extract data from websites base
 
 ## Features:
 * Wide list of export data types
-* Ability to scrape multiple websites using 1 json file
-* Ability to do actions on the page based on inputs in json file
+* Ability to define multiple start urls
+* Ability to define actions to be exicuted on the page
+* Ability to have nested actions
 
 ## Requirements:
 * [Python](https://www.python.org/downloads/)
 * [Selenium](https://www.seleniumhq.org/download/)
 * Requests ```pip install requests```
-* Chrome version 78 (with current chrome driver)
+* Chrome version 84 (if using built in chromedriver)
 
 ## How to run a scrape:
 
@@ -39,7 +38,7 @@ To make sure the packages are downloaded properly, do the following:
 
 ### **Step 2:**
 
-In the ```config.json``` file, enter the actions, and start url for your scrape. You can also use the example_config.json file as a sample.
+In the ```config.json``` file, enter the actions, and start urls for your scrape. You can also use the example_config.json file as a sample.
 
 ### **Step 3:**
 
