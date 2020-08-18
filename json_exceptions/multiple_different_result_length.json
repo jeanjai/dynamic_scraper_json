@@ -1,0 +1,35 @@
+{
+    "_comment_": "This is an exception where there are 2 elements that return different amount of results. This should return the Get Jobs data and the Company Data on 2 seperate rows",
+    "scraper_id": "New scraping project",
+    "start_urls": ["https://www.monster.com/jobs/l-anchorage-ak",
+                  "https://www.monster.com/jobs/l-bridgeport-ct"],
+    "actions": [
+        {
+            "id": "Get Jobs",
+            "type": "SelectorLink",
+            "parent": ["_root_"],
+            "selector": ".title a",
+            "other_selector": "",
+            "multiple": true,
+            "delay": 0
+        },
+        {
+            "id": "Company",
+            "type": "SelectorText",
+            "parent": ["_root_"],
+            "selector": "div.company",
+            "other_selector": "",
+            "multiple": true,
+            "delay": 0
+        },
+        {
+            "id": "Apply",
+            "type": "SelectorText",
+            "parent": ["Get Jobs"],
+            "selector": "div.heading div.see-more-results a",
+            "other_selector": "",
+            "multiple": true,
+            "delay": 0
+        }
+    ]  
+}

@@ -1,0 +1,22 @@
+{
+    "website": {
+        "url": ["https://example.com"],
+        "actions": [
+            {
+                "type": "enterText",
+                "value": "Foo",
+                "selector": "#search"
+            },
+            {
+                "type": "enterText",
+                "value": "Foo",
+                "selector": "#search_location"
+            },
+            {
+                "type": "click",
+                "selector": "#btn_search",
+                "multiple": false
+            }
+        ]
+    }
+}

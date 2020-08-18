@@ -1,0 +1,22 @@
+{
+    "Bing": {
+        "url": ["https://www.bing.com/"],
+        "actions": [
+            {
+                "type": "enterText",
+                "value": "Hello world",
+                "selector": "#sb_form_q"
+            },
+            {
+                "type": "click",
+                "selector": "label.search",
+                "multiple": false
+            },
+            {
+                "type": "getLink",
+                "selector": "li:nth-of-type(n+3) h2 a",
+                "multiple": true
+            }
+        ]
+    }
+}
