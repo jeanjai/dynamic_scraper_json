@@ -1,22 +1,32 @@
 {
-    "website": {
-        "url": ["https://example.com"],
-        "actions": [
-            {
-                "type": "enterText",
-                "value": "Foo",
-                "selector": "#search"
-            },
-            {
-                "type": "enterText",
-                "value": "Foo",
-                "selector": "#search_location"
-            },
-            {
-                "type": "click",
-                "selector": "#btn_search",
-                "multiple": false
-            }
-        ]
-    }
+    "scraper_id": "New scraping project",
+    "browser_options": {
+        "browser": false
+    },
+    "multi_proccessing": {
+        "status": false,
+        "token": 123
+    },
+    "start_urls": ["https://www.monster.com/jobs/l-anchorage-ak",
+                  "https://www.monster.com/jobs/l-bridgeport-ct"],
+    "actions": [
+        {
+            "id": "Example ID",
+            "type": "SelectorLink",
+            "parent": ["_root_"],
+            "selector": "#example.selector",
+            "other_selector": "",
+            "multiple": true,
+            "delay": 0
+        },
+        {
+            "id": "Other example",
+            "type": "SelectorText",
+            "parent": ["Example ID"],
+            "selector": "#secound div.example",
+            "other_selector": "",
+            "multiple": false,
+            "delay": 0
+        }
+    ]
 }
