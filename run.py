@@ -15,7 +15,7 @@ class scraper():
     curent_columns = -1
 
     def __init__(self):
-        with open('json_exceptions/multiple_different_result_length.json') as json_file:
+        with open('config.json') as json_file:
             self.jsonData = json.load(json_file)
 
         self.browser = base()
