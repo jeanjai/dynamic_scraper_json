@@ -7,8 +7,8 @@
         "status": false,
         "token": 123
     },
-    "start_urls": ["https://www.monster.com/jobs/l-anchorage-ak",
-                  "https://www.monster.com/jobs/l-bridgeport-ct"],
+    "start_urls": ["https://www.example.com/item/1",
+                  "https://www.example.com/item/2"],
     "actions": [
         {
             "id": "Example ID",
