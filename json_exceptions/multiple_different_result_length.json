@@ -6,7 +6,7 @@
     "actions": [
         {
             "id": "Get Jobs",
-            "type": "SelectorLink",
+            "type": "selectorLink",
             "parent": ["_root_"],
             "selector": ".title a",
             "other_selector": "",
@@ -15,7 +15,7 @@
         },
         {
             "id": "Company",
-            "type": "SelectorText",
+            "type": "selectorText",
             "parent": ["_root_"],
             "selector": "div.company",
             "other_selector": "",
@@ -24,7 +24,7 @@
         },
         {
             "id": "Apply",
-            "type": "SelectorText",
+            "type": "selectorText",
             "parent": ["Get Jobs"],
             "selector": "div.heading div.see-more-results a",
             "other_selector": "",

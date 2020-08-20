@@ -12,7 +12,7 @@
     "actions": [
         {
             "id": "Example ID",
-            "type": "SelectorLink",
+            "type": "selectorLink",
             "parent": ["_root_"],
             "selector": "#example.selector",
             "other_selector": "",
@@ -21,7 +21,7 @@
         },
         {
             "id": "Other example",
-            "type": "SelectorText",
+            "type": "selectorText",
             "parent": ["Example ID"],
             "selector": "#secound div.example",
             "other_selector": "",

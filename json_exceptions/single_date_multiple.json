@@ -13,7 +13,7 @@
     "actions": [
         {
             "id": "Get Jobs",
-            "type": "SelectorLink",
+            "type": "selectorLink",
             "parent": ["_root_"],
             "selector": ".title a",
             "other_selector": "",
@@ -22,7 +22,7 @@
         },
         {
             "id": "Posted Date",
-            "type": "SelectorText",
+            "type": "selectorText",
             "parent": ["_root_"],
             "selector": "time",
             "other_selector": "",
@@ -31,7 +31,7 @@
         },
         {
             "id": "Company",
-            "type": "SelectorText",
+            "type": "selectorText",
             "parent": ["Get Jobs"],
             "selector": "div.job_company_name",
             "other_selector": "",

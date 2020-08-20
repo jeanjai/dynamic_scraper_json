@@ -7,6 +7,10 @@ class scraper():
     
     data = [[]]
     data_headers = data[0]
+    object_results = {
+        'headers': [],
+        'results': []
+    }
     row = []
     curent_columns = -1
 
@@ -21,7 +25,7 @@ class scraper():
             "has_child": True,
             "results": self.jsonData["start_urls"]
         }])
-        print(self.data)
+        print(self.object_results)
 
 
     def runPageActions(self, parent_id):
@@ -31,7 +35,7 @@ class scraper():
             if parent_id in action["parent"]:
                 page_data.append({
                     "parent_id": action["id"],
-                    "is_link": action["type"] == "SelectorLink",
+                    "is_link": action["type"] == "selectorLink",
                     "has_child": self.hasChild(action["id"]),
                     "results": self.runAction(action)
                 })
@@ -40,6 +44,10 @@ class scraper():
 
 
     def compilePageResults(self, page_data):
+        # check if all the page results are the same length
+        # length = len of first result
+        # if any(len(lst) == length for lst in )
+
         for action_data in page_data:
             for i, result in enumerate(action_data["results"]):
                 self.row.append([action_data["parent_id"], result])
@@ -50,14 +58,42 @@ class scraper():
                     self.runPageActions(action_data["parent_id"])
                 
                 else:
-                    self.exportResults(self.row)
+                    #self.exportAsArray(self.row)
+                    self.exportAsObject(self.row)
                     self.row.pop()
 
         if page_data[0]["parent_id"] != "_root_":
             self.row.pop()
 
+    # row = [["_root_", "value"], ['Get Job', "value"]]
+    
+    # return = headers: [
+    #    { text: 'Dessert (100g serving)', value: 'name',},
+    #    { text: 'Calories', value: 'calories' }
+    #  ],
+    #  desserts: [
+    #    {
+    #      name: 'Frozen Yogurt',
+    #      calories: 159,
+    #    },
+    def exportAsObject(self, row):
+        results = {}
 
-    def exportResults(self, row):
+        for result in row:
+            row_header = result[0]
+            row_value = result[1]
+            
+            if not any(d['text'] == row_header for d in self.object_results['headers']):
+                self.object_results['headers'].append({'text': row_header, 'value': row_header})
+
+            # add row value
+            results[row_header] = row_value
+        
+        self.object_results['results'].append(results)
+
+
+
+    def exportAsArray(self, row):
         export_row = [''] * len(self.data_headers)
 
         # result = [parent, value]
@@ -87,13 +123,13 @@ class scraper():
 
     def runAction(self, action):
         if action["type"] == "enterText":
-            self.browser.write(action["selector"],action["value"])
+            self.browser.write(action["selector"], action["value"])
         
-        elif action["type"] == "SelectorText":
+        elif action["type"] == "selectorText":
             if action["multiple"]:
                 return self.browser.getValues(action["selector"])
             else:
-                return self.browser.getValue(action["selector"])
+                return [self.browser.getValue(action["selector"])]
         
         elif action["type"] == "getAttribute":
             if action["multiple"]:
@@ -104,11 +140,11 @@ class scraper():
         elif action["type"] == "click":
             self.browser.click(action["selector"])
 
-        elif action["type"] == "SelectorLink":
+        elif action["type"] == "selectorLink":
             if action["multiple"]:
                 return self.browser.getLinks(action["selector"])
             else:
-                return self.browser.getLink(action["selector"])
+                return [self.browser.getLink(action["selector"])]
 
         # elif action["type"] == "ifElse":
             # runTypes(action["if"])

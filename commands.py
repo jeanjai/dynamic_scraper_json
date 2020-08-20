@@ -64,9 +64,9 @@ class base():
     def getValue(self, selector):
         elem = self.findElem(selector)
         if elem:
-            return [elem.text]
+            return elem.text
         else:
-            return ['']
+            return ''
 
     def getValues(self, selector):
         elems = self.findElems(selector)
