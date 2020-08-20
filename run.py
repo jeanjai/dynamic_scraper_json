@@ -65,17 +65,7 @@ class scraper():
         if page_data[0]["parent_id"] != "_root_":
             self.row.pop()
 
-    # row = [["_root_", "value"], ['Get Job', "value"]]
-    
-    # return = headers: [
-    #    { text: 'Dessert (100g serving)', value: 'name',},
-    #    { text: 'Calories', value: 'calories' }
-    #  ],
-    #  desserts: [
-    #    {
-    #      name: 'Frozen Yogurt',
-    #      calories: 159,
-    #    },
+            
     def exportAsObject(self, row):
         results = {}
 
