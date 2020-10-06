@@ -16,6 +16,7 @@ This dynamic scraper uses python and selenium to extract data from websites base
 * Run either headless or display visually
 * Can gather data rendered with javascript
 * Ability to create nested actions
+* Export results in either a csv or an object
 
 ## Requirements:
 * [Python](https://www.python.org/downloads/)
